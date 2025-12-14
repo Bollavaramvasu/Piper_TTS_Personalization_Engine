@@ -46,11 +46,7 @@ flowchart TD
   linkStyle default stroke:#6c757d,stroke-width:2px;
 ```
 
-U2 --> P1 --> P2
-P2 --> A1 --> A2 --> A3 --> J1 --> J2
-U1 --> T1
-J2 --> T1
-T1 --> T2 --> T3
+
 
 
 This shows where personalization fits into the TTS pipeline: user audio is analyzed once to produce a reusable profile, which is then used at inference time along with text input.
@@ -371,6 +367,7 @@ Observed differences:
 
 - **Audio files**:
   - `baseline.wav` and `personalized.wav` for listening comparison.
+
 
 
 
