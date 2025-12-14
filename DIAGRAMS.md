@@ -1,10 +1,10 @@
-# Dataset Pipeline & Architecture (Mermaid + Light fallback)
 
-I fixed formatting issues, removed duplicate headings, simplified where Mermaid styling can cause rendering problems, and added a light (plain-text) fallback that will display well if Mermaid or rich styling does not render.
+
+
 
 ## 1. Dataset Pipeline
 
-Below are refreshed Mermaid diagrams (styled but kept compatible). If your viewer cannot render the full styles, use the "Light display" plain-text section after the Mermaid blocks.
+
 
 ```mermaid
 flowchart LR
