@@ -51,7 +51,7 @@ flowchart LR
 This diagram visualizes parallel audio and text processing streams that converge into the TTS model input.
 
 
-### 1.3 Voice Characteristic Mapping (Conceptual)
+### 1.3 Voice Characteristic Mapping 
 
 ```mermaid
 flowchart LR
