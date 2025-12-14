@@ -9,7 +9,7 @@ E --> F[Feature Extraction\n(mel-spectrograms, phonemes, prosody)]
 F --> G[Training Dataset\n(ready for TTS models like Piper)]
 
 
-This diagram illustrates the typical pipeline from raw recordings and text sources to a training-ready dataset used by TTS models like Piper, similar to how LibriTTS and HUI corpora are prepared. [web:104][web:111]
+This diagram illustrates the typical pipeline from raw recordings and text sources to a training-ready dataset used by TTS models like Piper, similar to how LibriTTS and HUI corpora are prepared. 
 
 Feature Extraction Flow
 
@@ -25,7 +25,7 @@ C --> H[TTS Model Input]
 D --> H
 G --> H
 
-This diagram shows how audio and text are converted into features such as mel-spectrograms, prosody signals, and phoneme sequences, which are then fed into the TTS model. [web:104][web:82]
+This diagram shows how audio and text are converted into features such as mel-spectrograms, prosody signals, and phoneme sequences, which are then fed into the TTS model. 
 
 Voice Characteristic Mapping
 
@@ -46,7 +46,7 @@ C --> C4[Pitch & Timbre]
 C --> C5[Emotional Expressiveness]
 
 
-This diagram conceptually links dataset design choices (left) to the latent representation learned by a TTS model and finally to perceived voice qualities (right). [web:104][web:110][web:111]
+This diagram conceptually links dataset design choices (left) to the latent representation learned by a TTS model and finally to perceived voice qualities (right).
 
 ## 2. Architecture
 
