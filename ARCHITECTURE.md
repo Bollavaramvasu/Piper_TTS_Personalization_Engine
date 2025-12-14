@@ -297,7 +297,7 @@ Design decision:
   - Using Piper’s training pipeline.
   - GPU / training time.
 
-This is mentioned as future work in documentation; for the coding test, runtime personalization is sufficient and much faster on Windows.
+
 
 ---
 
@@ -370,6 +370,7 @@ Observed differences:
 
 - **Audio files**:
   - `baseline.wav` and `personalized.wav` for listening comparison.
+
 
 
 
