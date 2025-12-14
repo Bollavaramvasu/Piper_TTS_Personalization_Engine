@@ -55,25 +55,20 @@ This shows where personalization fits into the TTS pipeline: user audio is analy
 
 ## 3. Data Flow Diagram (DFD)
 
+```mermaid
 flowchart LR
-subgraph Level0[Level 0 DFD]
-U[(User)]
-U -->|records voice| D1[user_raw.wav]
-
-
+  subgraph Level0["Level 0 DFD"]
+    U[(User)]
+    U -->|records voice| D1[user_raw.wav]
     D1 --> P[Preprocess Audio]
     P --> D2[user_clean.wav]
-
     D2 --> F[Feature Extractor]
     F --> D3[Prosody Features]
-
     D3 --> E[Emotion Classifier]
     E --> D4[Emotion Label]
-
     D3 --> S[Style Mapper]
     D4 --> S
     S --> D5[Piper Params]
-
     D3 --> B[Profile Builder]
     D4 --> B
     D5 --> B
@@ -84,7 +79,12 @@ U -->|records voice| D1[user_raw.wav]
     T --> C[Piper Engine]
     C --> D7[personalized.wav]
     D7 --> U
-end
+  end
+```
+This DFD shows the main data sources, transformations, artifacts, and the end-to-end customer-facing flow.
+
+---
+
 
 
 Main data items:
@@ -367,6 +367,7 @@ Observed differences:
 
 - **Audio files**:
   - `baseline.wav` and `personalized.wav` for listening comparison.
+
 
 
 
