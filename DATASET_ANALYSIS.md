@@ -199,9 +199,9 @@ This section translates the observations above into actionable guidelines to des
 
 ---
 
-## 5. Diagrams (Mermaid)
+## 5. Diagrams
 
-## 1. Dataset Pipeline
+## 5.1. Dataset Pipeline
 
 
 
@@ -227,7 +227,7 @@ flowchart LR
 
 This diagram shows the journey from raw recordings and text to a training-ready dataset (used in corpora like LibriTTS/HUI).
 
-## 1.2 Feature Extraction Flow
+## 5.2 Feature Extraction Flow
 
 ```mermaid
 flowchart LR
@@ -250,7 +250,7 @@ flowchart LR
 This diagram visualizes parallel audio and text processing streams that converge into the TTS model input.
 
 
-### 1.3 Voice Characteristic Mapping (Conceptual)
+### 5.3 Voice Characteristic Mapping 
 
 ```mermaid
 flowchart LR
@@ -288,5 +288,6 @@ Piper TTS typically expects training data in formats similar to LJSpeech (e.g., 
 - Using LJSpeech-like data yields a stable, single English female voice with good clarity but limited accent and emotional variation.  
 - Multi-speaker datasets like VCTK, LibriTTS, Hi-Fi, and HUI enable training Piper models that can support multiple voices, accents, or languages, at the cost of more complex training and balancing. 
 When building personalized or multi-profile voices on top of Piper, following the guidelines in Section 4 helps select or construct datasets that match desired voice characteristics while maintaining high clarity and naturalness. 
+
 
 
