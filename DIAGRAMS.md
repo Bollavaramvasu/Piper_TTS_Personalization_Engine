@@ -1,138 +1,84 @@
+
 ## 1. Dataset Pipeline
 
 flowchart LR
-    A[Raw Audio & Text Sources<br/>(Audiobooks, Scripts, Web Text)]
-    B[Data Cleaning<br/>(remove noise, clipping, bad segments)]
-    C[Segmentation<br/>(split into utterances)]
-    D[Alignment<br/>(audio ↔ text)]
-    E[Normalization<br/>(text, sampling rate, loudness)]
-    F[Feature Extraction<br/>(mel-spectrograms, phonemes, prosody)]
-    G[Training Dataset<br/>(ready for TTS models like Piper)]
+A[Raw Audio & Text Sources\n(Audiobooks, Scripts, Web Text)] --> B[Data Cleaning\n(remove noise, clipping, bad segments)]
+@@ -48,77 +48,77 @@
 
-    A --> B --> C --> D --> E --> F --> G
-
-
-Feature Extraction Flow
-
-flowchart LR
-    A[Audio Waveform]
-    B[Preprocessing<br/>(resample, trim, normalize)]
-
-    C[Acoustic Features<br/>(mel-spectrogram, energy)]
-    D[Prosodic Features<br/>(pitch F0, duration, pauses)]
-
-    E[Text Transcripts]
-    F[Text Normalization<br/>(expand numbers, abbreviations)]
-    G[Phoneme / Character Sequences]
-
-    H[TTS Model Input]
-
-    A --> B
-    B --> C
-    B --> D
-
-    E --> F --> G
-
-    C --> H
-    D --> H
-    G --> H
-
-Voice Characteristic Mapping
-
-flowchart LR
-    A[Dataset Properties]
-    B[Learned Acoustic & Prosodic Space]
-    C[Synthesized Voice Characteristics]
-
-    A --> B --> C
-
-    A --> A1[Sampling Rate & Bit Depth]
-    A --> A2[Noise Level & Room Acoustics]
-    A --> A3[Speakers & Accents]
-    A --> A4[Text & Phoneme Coverage]
-    A --> A5[Prosody & Emotion Diversity]
-
-    C --> C1[Clarity]
-    C --> C2[Naturalness]
-    C --> C3[Accent & Pronunciation]
-    C --> C4[Pitch & Timbre]
-    C --> C5[Emotional Expressiveness]
+This diagram conceptually links dataset design choices (left) to the latent representation learned by a TTS model and finally to perceived voice qualities (right). 
 
 
 ## 2. Architecture
 
 flowchart LR
-    subgraph User_Side[User Side]
-        U1[User Text Input]
-        U2[User Audio Recording<br/>user_raw.wav]
-    end
+subgraph User Side
+U1[User Text Input]
+U2[User Audio Recording\nuser_raw.wav]
+end
 
-    subgraph Preprocessing
-        P1[Audio Preprocess<br/>(preprocess_audio.py)]
-        P2[user_clean.wav]
-    end
 
-    subgraph Analysis
-        A1[Prosody Extraction<br/>(prosody_profile.py)]
-        A2[Emotion Inference<br/>(emotion_model.py)]
-        A3[Style Mapping<br/>(style_mapping.py)]
-    end
+subgraph Preprocessing
+    P1[Audio Preprocess\n(preprocess_audio.py)]
+    P2[user_clean.wav]
+end
 
-    subgraph Profile
-        J1[Profile Builder<br/>(profile_builder.py)]
-        J2[voice_profile.json]
-    end
+subgraph Analysis
+    A1[Prosody Extraction\n(prosody_profile.py)]
+    A2[Emotion Inference\n(emotion_model.py)]
+    A3[Style Mapping\n(style_mapping.py)]
+end
 
-    subgraph TTS_Engine[TTS Engine]
-        T1[Piper CLI Wrapper<br/>(main_cli.py)]
-        T2[Piper Binary<br/>(piper.exe + .onnx)]
-        T3[personalized.wav]
-    end
+subgraph Profile
+    J1[Profile Builder\n(profile_builder.py)]
+    J2[voice_profile.json]
+end
 
-    U2 --> P1 --> P2
-    P2 --> A1 --> A2 --> A3 --> J1 --> J2
+subgraph TTS Engine
+    T1[Piper CLI Wrapper\n(main_cli.py)]
+    T2[Piper Binary\npiper.exe + .onnx]
+    T3[personalized.wav]
+end
 
-    U1 --> T1
-    J2 --> T1
-    T1 --> T2 --> T3
+U2 --> P1 --> P2
+P2 --> A1 --> A2 --> A3 --> J1 --> J2
+U1 --> T1
+J2 --> T1
+T1 --> T2 --> T3
 
+
+This shows where personalization fits into the TTS pipeline: user audio is analyzed once to produce a reusable profile, which is then used at inference time along with text input.
+
+---
 
 ## 3. Data Flow Diagram (DFD)
 
 flowchart LR
-    subgraph Level0[Level 0 DFD]
-        U[(User)]
+subgraph Level0[Level 0 DFD]
+U[(User)]
+U -->|records voice| D1[user_raw.wav]
 
-        D1[user_raw.wav]
-        D2[user_clean.wav]
-        D3[Prosody Features]
-        D4[Emotion Label]
-        D5[Piper Params]
-        D6[voice_profile.json]
-        D7[personalized.wav]
 
-        P[Preprocess Audio]
-        F[Feature Extractor]
-        E[Emotion Classifier]
-        S[Style Mapper]
-        B[Profile Builder]
-        T[CLI / API]
-        C[Piper Engine]
+    D1 --> P[Preprocess Audio]
+    P --> D2[user_clean.wav]
 
-        U -->|records voice| D1
-        D1 --> P --> D2
-        D2 --> F --> D3
-        D3 --> E --> D4
-        D3 --> S
-        D4 --> S --> D5
+    D2 --> F[Feature Extractor]
+    F --> D3[Prosody Features]
 
-        D3 --> B
-        D4 --> B
-        D5 --> B
-        B --> D6
+    D3 --> E[Emotion Classifier]
+    E --> D4[Emotion Label]
 
-        U -->|types text| T
-        D6 --> T --> C --> D7
-        D7 --> U
-    end
+    D3 --> S[Style Mapper]
+    D4 --> S
+    S --> D5[Piper Params]
 
+    D3 --> B[Profile Builder]
+    D4 --> B
+    D5 --> B
+    B --> D6[voice_profile.json]
+
+    U -->|types text| T[CLI/API]
+    D6 --> T
+    T --> C[Piper Engine]
+    C --> D7[personalized.wav]
+    D7 --> U
+end
