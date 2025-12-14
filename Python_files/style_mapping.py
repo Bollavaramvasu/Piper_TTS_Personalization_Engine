@@ -1,4 +1,4 @@
-# style_mapping.py
+
 
 def prosody_to_piper_params(profile: dict, emotion: str) -> dict:
     speech_rate = profile["speech_event_rate"]
@@ -39,3 +39,4 @@ def prosody_to_piper_params(profile: dict, emotion: str) -> dict:
         "noise_w": noise_w,
         "emotion": emotion,
     }
+
