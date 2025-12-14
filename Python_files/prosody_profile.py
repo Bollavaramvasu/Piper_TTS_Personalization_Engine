@@ -1,4 +1,4 @@
-# prosody_profile.py
+
 import parselmouth
 import numpy as np
 from logger import get_logger
@@ -44,3 +44,4 @@ if __name__ == "__main__":
     profile = extract_prosody("user_clean.wav")
     log.info(f"Prosody features: {profile}")
     print(profile)
+
