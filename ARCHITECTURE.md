@@ -364,32 +364,13 @@ Observed differences:
 
 ---
 
-## 7. Screenshots and Sample Outputs
-
-For the repository and assessment, you can include:
-
-- **Screenshot 1**: Windows Explorer showing:
-  - `user_raw.wav`, `user_clean.wav`, `voice_profile.json`, `personalized.wav`.
-  - All `.py` files: `preprocess_audio.py`, `prosody_profile.py`, `emotion_model.py`, `style_mapping.py`, `profile_builder.py`, `main_cli.py`.
-
-- **Screenshot 2**: PowerShell run of:
-
-py main_cli.py --train-profile
+## 7. Sample Outputs
 
 
-
-showing printed prosody features and emotion.
-
-- **Screenshot 3**: PowerShell run of:
-
-py main_cli.py --text "This is my personalized Piper voice." --output personalized.wav
-
-
-
-showing Piper logs (load time, real-time factor, “Saved synthesized audio…”).
 
 - **Audio files**:
   - `baseline.wav` and `personalized.wav` for listening comparison.
 
-These artifacts demonstrate that the personalization engine is fully integrated with Piper TTS and working end-to-end on a Windows environment.
+
+
 
