@@ -139,7 +139,6 @@ flowchart LR
     D7 --> U
   end
 ```
-
 This DFD shows the main data sources, transformations, artifacts, and the end-to-end customer-facing flow.
 
 ---
