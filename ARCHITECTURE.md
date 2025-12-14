@@ -14,7 +14,7 @@ Key components:
 
 ---
 
-## 2. Updated Architecture (Mermaid)
+## 2. Architecture
 
 flowchart LR
 subgraph User Side
@@ -392,3 +392,4 @@ showing Piper logs (load time, real-time factor, “Saved synthesized audio…�
   - `baseline.wav` and `personalized.wav` for listening comparison.
 
 These artifacts demonstrate that the personalization engine is fully integrated with Piper TTS and working end-to-end on a Windows environment.
+
