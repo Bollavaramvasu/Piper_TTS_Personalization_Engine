@@ -1,0 +1,49 @@
+2025-12-18 10:16:15,434 [INFO] __main__ - [preprocess] input=user_raw.wav, output=user_clean.wav
+2025-12-18 10:16:15,491 [INFO] __main__ - [preprocess] channels=2, sr=48000, width=2
+2025-12-18 10:16:15,732 [INFO] __main__ - [preprocess] done in 0.295s
+2025-12-18 10:16:15,734 [INFO] __main__ - Saved user_clean.wav
+2025-12-18 10:16:20,779 [INFO] __main__ - Starting profile training from user_clean.wav
+2025-12-18 10:16:20,779 [INFO] profile_builder - Building profile for user_id=default_user from user_clean.wav
+2025-12-18 10:16:20,780 [INFO] prosody_profile - Starting prosody extraction from user_clean.wav
+2025-12-18 10:16:21,008 [INFO] prosody_profile - Prosody features extracted from user_clean.wav: {'duration': 74.41065759637188, 'mean_f0': 114.63373132056799, 'std_f0': 31.05928466296394, 'mean_energy': 52.997669887010325, 'std_energy': 33.493292616286794, 'num_pauses': 766, 'pause_rate': 10.294224305274097, 'speech_event_rate': 10.253907499900961} (f0_len=3335, energy_len=9294, time=0.228s)
+2025-12-18 10:16:21,015 [INFO] profile_builder - Built profile for default_user: emotion=neutral, params={'length_scale': 0.9, 'noise_scale': 0.6, 'noise_w': 0.7, 'emotion': 'neutral'}, time=0.235s, profile_size_bytes=469
+2025-12-18 10:16:21,015 [INFO] __main__ - Profile saved to voice_profile.json
+2025-12-18 10:16:21,766 [INFO] __main__ - Starting personalized synthesis using profile=voice_profile.json
+2025-12-18 10:16:21,767 [INFO] __main__ - Preparing Piper synthesis: profile=voice_profile.json, params={'length_scale': 0.9, 'noise_scale': 0.6, 'noise_w': 0.7}, text_len=19, output=test_logging.wav
+2025-12-18 10:16:21,767 [INFO] __main__ - Piper command: "C:\piper\piper\piper" --model "C:\piper\piper\en_US-kathleen-low.onnx" --length_scale 0.9 --noise_scale 0.6 --noise_w 0.7 --output_file "test_logging.wav"
+2025-12-18 10:16:23,491 [INFO] __main__ - Piper stdout: test_logging.wav
+2025-12-18 10:16:23,491 [INFO] __main__ - Piper stderr: [2025-12-18 10:16:23.006] [piper] [info] Loaded voice in 0.8408948 second(s)
+[2025-12-18 10:16:23.088] [piper] [info] Initialized piper
+[2025-12-18 10:16:23.445] [piper] [info] Real-time factor: 0.196845390625 (infer=0.2519621 sec, audio=1.28 sec)
+[2025-12-18 10:16:23.445] [piper] [info] Terminated piper
+2025-12-18 10:16:23,491 [INFO] __main__ - Piper synthesis finished in 1.723s with returncode=0
+2025-12-18 10:16:23,492 [INFO] __main__ - Saved synthesized audio to test_logging.wav
+2025-12-18 10:35:46,020 [INFO] __main__ - [preprocess] input=user_raw.wav, output=user_clean.wav
+2025-12-18 10:35:46,037 [INFO] __main__ - [preprocess] channels=2, sr=48000, width=2
+2025-12-18 10:35:46,134 [INFO] __main__ - [preprocess] done in 0.114s
+2025-12-18 10:35:46,134 [INFO] __main__ - Saved user_clean.wav
+2025-12-18 10:38:04,939 [INFO] __main__ - [preprocess] input=user_raw.wav, output=user_clean.wav
+2025-12-18 10:38:04,965 [INFO] __main__ - [preprocess] channels=2, sr=48000, width=2
+2025-12-18 10:38:05,098 [INFO] __main__ - [preprocess] done in 0.158s
+2025-12-18 10:38:05,098 [INFO] __main__ - Saved user_clean.wav
+2025-12-18 10:38:05,705 [INFO] __main__ - Starting profile training from user_clean.wav
+2025-12-18 10:38:05,705 [INFO] profile_builder - Building profile for user_id=default_user from user_clean.wav
+2025-12-18 10:38:05,706 [INFO] prosody_profile - Starting prosody extraction from user_clean.wav
+2025-12-18 10:38:05,986 [INFO] prosody_profile - Prosody features extracted from user_clean.wav: {'duration': 74.41065759637188, 'mean_f0': 114.63373132056799, 'std_f0': 31.05928466296394, 'mean_energy': 52.997669887010325, 'std_energy': 33.493292616286794, 'num_pauses': 766, 'pause_rate': 10.294224305274097, 'speech_event_rate': 10.253907499900961} (f0_len=3335, energy_len=9294, time=0.281s)
+2025-12-18 10:38:05,991 [INFO] profile_builder - Built profile for default_user: emotion=neutral, params={'length_scale': 0.8, 'noise_scale': 0.5, 'noise_w': 0.6, 'emotion': 'neutral'}, time=0.286s, profile_size_bytes=469
+2025-12-18 10:38:05,992 [INFO] __main__ - Profile saved to voice_profile.json
+2025-12-18 10:38:21,761 [INFO] __main__ - Baseline Piper command: "C:\piper\piper\piper" --model "C:\piper\piper\en_US-kathleen-low.onnx" --output_file "baseline_compare.wav"
+2025-12-18 10:38:23,168 [INFO] __main__ - Baseline Piper finished in 1.406s rc=0
+2025-12-18 10:38:23,168 [INFO] __main__ - Baseline stdout: baseline_compare.wav
+2025-12-18 10:38:23,169 [INFO] __main__ - Baseline stderr: [2025-12-18 10:38:22.742] [piper] [info] Loaded voice in 0.6460041 second(s)
+[2025-12-18 10:38:22.814] [piper] [info] Initialized piper
+[2025-12-18 10:38:23.127] [piper] [info] Real-time factor: 0.185189217032967 (infer=0.2696355 sec, audio=1.456 sec)
+[2025-12-18 10:38:23.128] [piper] [info] Terminated piper
+2025-12-18 10:38:23,170 [INFO] __main__ - Preparing Piper synthesis: profile=voice_profile.json, params={'length_scale': 0.8, 'noise_scale': 0.5, 'noise_w': 0.6}, text_len=19, output=personalized_compare.wav
+2025-12-18 10:38:23,171 [INFO] __main__ - Piper command: "C:\piper\piper\piper" --model "C:\piper\piper\en_US-kathleen-low.onnx" --length_scale 0.8 --noise_scale 0.5 --noise_w 0.6 --output_file "personalized_compare.wav"
+2025-12-18 10:38:24,571 [INFO] __main__ - Piper stdout: personalized_compare.wav
+2025-12-18 10:38:24,571 [INFO] __main__ - Piper stderr: [2025-12-18 10:38:24.178] [piper] [info] Loaded voice in 0.769835 second(s)
+[2025-12-18 10:38:24.234] [piper] [info] Initialized piper
+[2025-12-18 10:38:24.531] [piper] [info] Real-time factor: 0.2233773767605634 (infer=0.2537567 sec, audio=1.136 sec)
+[2025-12-18 10:38:24.532] [piper] [info] Terminated piper
+2025-12-18 10:38:24,571 [INFO] __main__ - Piper synthesis finished in 1.399s with returncode=0
